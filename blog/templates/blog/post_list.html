@@ -8,52 +8,13 @@
             <h1><a href="/">A raccoon is learning to code</a></h1>
         </header>
         
-        <article>
-            <time>published: 29.03.2025, 12:10</time>
-            <h2><a href="">My first post</a></h2>
-            <p>I am coding and drinking coffee. woooo.</p>
-        </article>
-
-        <article>
-            <time>published: 29.03.2025, 12:11</time>
-            <h2><a href="">My second post</a></h2>
-            <p>Hi there!</p>
-            <p>It works!</p>
-        </article>
-
-        <article>
-            <time>published: 29.03.2025, 12:52</time>
-            <h2><a href="">I LEARNED THINGS</a></h2>
-            <p>**Me, a raccoon, learning Django:**</p>  
-
-            <p>Alright, so I found this glowing rectangle humans call a "laptop." Thought it was a food box at first. It is not. But it does have *power.*</p>  
-
-            <p>Started learning Django because the human left their screen unlocked, and I saw something about "web apps" and "databases." Figured, hey, if I can open a locked trash can, I can figure this out.</p>  
-
-            <ol>
-                <li>**Step 1: Install Django**</li>  
-                <p>Typed `pip install django` with my little raccoon fingers. It worked. Felt unstoppable.</p>  
-
-                <li>**Step 2: Start a project**</li>  
-                <p>Ran `django-admin startproject trashKingdom`. Made a whole folder full of files I do not understand. Exciting and terrifying. Like finding an unopened bag of chips.</p>  
-
-                <li>**Step 3: Views and URLs**</li>  
-                <p>Tried making a page that just says "Hello, garbage world!" Humans use `views.py` for this. Made a function, linked it in `urls.py`. Refreshed the page... and *error messages appeared.* Many. So many.</p>  
-
-                <li>**Step 4: Debugging**</li> 
-                p>Googled furiously. Found Stack Overflow. It is like a giant, complicated dumpster filled with knowledge. Sometimes you find treasure. Sometimes you get bitten.</p>  
-
-                <li>**Step 5: Databases? Models?**</li> 
-                <p>Django wants me to *migrate* something. Where? Why? I don’t know, but I ran `python manage.py migrate` and it seemed happy, so I am pretending I understand.</p>  
-            </ol>
-
-                <p>**Current status:**</p>  
-                <p>I have a working Django app that does one thing: show a page that says “Raccoons Rule.” It is not much, but it is *mine.* Thinking about adding a database to track the best dumpsters in the city.</p>  
-
-                <p>Tomorrow: Maybe learn about templates. Maybe bite a power cable. We’ll see where the night takes me. 🦝💻</p>
-
-                <p>(actually written by chatgpt, sorry y'all.)</p>
-        </article>
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}    
             
     </body>
 </html>
